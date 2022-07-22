@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock title %}
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Hmart-Smart Product eCommerce html Template">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <!-- CSS
+    ============================================ -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/font.awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/pe-icon-7-stroke.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/venobox.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.min.css' %}">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <!-- Minify Version -->
+    <!-- <link rel="stylesheet" href="assets/css/plugins.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css"> -->
+</head>
+
+<body>
+    {% block header %}{% endblock header %}
+    {% block modal %}{% endblock modal %}
+    
+  
+
+
+    <!-- Global Vendor, plugins JS -->
+    <!-- JS Files
+    ============================================ -->
+    <script src="{% static 'assets/js/vendor/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery-migrate-3.3.2.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/modernizr-3.11.2.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/scrollUp.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/venobox.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/mailchimp-ajax.js' %}"></script>
+    <script>
+        $('[data-bg-image]').each(function() {
+            var $this = $(this),
+                $image = $this.data('bg-image');
+            $this.css('background-image', 'url(' + $image + ')');
+        });
+
+        $('[data-countdown]').each(function() {
+            var $this = $(this),
+                $finalDate = $this.data('countdown');
+            $this.countdown($finalDate, function(event) {
+                $this.html(event.strftime('<div class="count"><span class="amount">%-D</span><span class="period">Days</span></div><div class="count"><span class="amount">%-H</span><span class="period">Hours</span></div><div class="count"><span class="amount">%-M</span><span class="period">Minutes</span></div><div class="count"><span class="amount">%-S</span><span class="period">Seconds</span></div>'));
+            });
+        });
+    </script>
+
+    <!-- Minify Version -->
+    <!-- <script src="assets/js/vendor.min.js"></script>
+    <script src="assets/js/plugins.min.js"></script>
+    <script src="assets/js/main.min.js"></script> -->
+
+    <!--Main JS (Common Activation Codes)-->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>
