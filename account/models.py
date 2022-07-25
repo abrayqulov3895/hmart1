@@ -69,6 +69,9 @@ class CustomUser(AbstractUser):
     bio = models.TextField(null=True)
     avatar = models.ImageField(upload_to='profile/', null=True, default='profile/default.png')
     phonenumber = PhoneNumberField(blank=True, null=True)
+
+    class Meta(AbstractUser.Meta):
+        swappable = 'AUTH_USER_MODEL'
     def save(self,*args, **kwargs):
         print('check save')
         if not self.slug:
@@ -78,4 +81,9 @@ class CustomUser(AbstractUser):
         super(CustomUser, self).save(*args, **kwargs)
     def __str__(self) -> str:
         return f'{self.username}...'
+
+class Feedback(models.Model):
+    owner = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    text = models.TextField(blank=True)
+
         
