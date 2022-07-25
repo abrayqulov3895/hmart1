@@ -19,9 +19,9 @@
                 <div class="body customScroll">
                     <ul class="minicart-product-list">
                         <li>
-                            <a href="single-product.html" class="image"><img src="{% static 'assets/images/product-image/1.webp' %}" alt="Cart product Image"></a>
+                            <a href="single-product.html" class="image"><img src="{{bannerlist.bg_image.url}}" alt="Cart product Image"></a>
                             <div class="content">
-                                <a href="single-product.html" class="title">Modern Smart Phone</a>
+                                <a href="single-product.html" class="title">{{bannerlist.title}}</a>
                                 <span class="quantity-price">1 x <span class="amount">$21.86</span></span>
                                 <a href="#" class="remove">×</a>
                             </div>
@@ -240,52 +240,34 @@
             <div class="hero-slider swiper-container slider-nav-style-1 slider-dot-style-1">
                 <!-- Hero slider Active -->
                 <div class="swiper-wrapper">
-                    <!-- Single slider item -->
-                    <div class="hero-slide-item slider-height swiper-slide bg-color1" data-bg-image="assets/images/hero/bg/hero-bg-1.webp">
+                    <!-- Single slider item -->{% for bannerlists in bannerlist %}
+                    <div class="hero-slide-item slider-height swiper-slide bg-color1" data-bg-image="{{bannerlists.bg_image.url}}">
                         <div class="container h-100">
+                            
                             <div class="row h-100">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 align-self-center sm-center-view">
                                     <div class="hero-slide-content slider-animated-1">
-                                        <span class="category">Welcome To Hmart</span>
-                                        <h2 class="title-1">Your Home <br>
-                                        Smart Devices & <br>
-                                         Best Solution </h2>
+                                        <span class="category">{{bannerlists.title}}</span>
+                                        <h2 class="title-1">{{bannerlists.category}} </h2>
                                         <a href="shop-left-sidebar.html" class="btn btn-primary text-capitalize">Shop All Devices</a>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center position-relative align-items-end">
+                                    
                                     <div class="show-case">
                                         <div class="hero-slide-image">
-                                            <img src="{% static 'assets/images/hero/inner-img/hero-1-1.png' %}" alt="" />
+                                            <img src="{{ bannerlists.img_product.url }}" alt="" />
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
+                    {% endfor %}
                     <!-- Single slider item -->
-                    <div class="hero-slide-item slider-height swiper-slide bg-color1" data-bg-image="assets/images/hero/bg/hero-bg-1.webp">
-                        <div class="container h-100">
-                            <div class="row h-100">
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 align-self-center sm-center-view">
-                                    <div class="hero-slide-content slider-animated-1">
-                                        <span class="category">Welcome To Hmart</span>
-                                        <h2 class="title-1">Your Home <br>
-                                        Smart Devices & <br>
-                                         Best Solution </h2>
-                                        <a href="shop-left-sidebar.html" class="btn btn-primary text-capitalize">Shop All Devices</a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center position-relative align-items-end">
-                                    <div class="show-case">
-                                        <div class="hero-slide-image">
-                                            <img src="{% static 'assets/images/hero/inner-img/hero-1-2.png' %}" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination swiper-pagination-white"></div>
@@ -334,6 +316,7 @@
             </div>
         </div>
         <!-- Banner Area End -->
+        
         <!-- Product Area Start -->
         <div class="product-area pb-100px">
             <div class="container">
@@ -361,59 +344,32 @@
                             <!-- 1st tab start -->
                             <div class="tab-pane fade show active" id="newarrivals">
                                 <div class="row mb-n-30px">
+                                    
+                                    
+                                    {% for product in products %}
                                     <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
                                         <!-- Single Prodect -->
                                         <div class="product">
                                             <span class="badges">
-                                                <span class="new">New</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/1.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="assets/images/product-image/1.webp" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Modern Smart Phone
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="sale">-10%</span>
+                                                <span class="sale">-{{product.discount}}%</span>
                                             <span class="new">New</span>
                                             </span>
                                             <div class="thumb">
+                                                
                                                 <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/2.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/2.webp' %}" alt="Product" />
+                                                    <img src="{{product.get_image.url}}" alt="Product" />
+                                                    <img class="hover-image" src="{{product.get_image.url}}" alt="Product" />
                                                 </a>
+                                                
                                             </div>
                                             <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Bluetooth Headphone
+                                                <span class="category"><a href="#">{{category.title}}</a></span>
+                                                <h5 class="title"><a href="single-product.html">{{product.title}}
                                                     </a>
                                                 </h5>
                                                 <span class="price">
-                                                    <span class="old">$48.50</span>
-                                                <span class="new">$38.50</span>
+                                                    <span class="old">{{product.price}}</span>
+                                                <span class="new">{{product.get_price}}</span>
                                                 </span>
                                             </div>
                                             <div class="actions">
@@ -427,206 +383,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="new">Sale</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/3.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="assets/images/product-image/3.webp" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Smart Music Box
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="new">New</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/4.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/1.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Air Pods 25Hjkl Black
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/5.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/5.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Smart Hand Watch
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="sale">-8%</span>
-                                            <span class="new">Sale</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/5.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/5.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Smart Table Camera
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="old">$138.50</span>
-                                                <span class="new">$112.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="new">Sale</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/7.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/1.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Round Pocket Router
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="sale">-5%</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/8.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/8.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Power Bank 10000Mhp
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="old">$260.00</span>
-                                                <span class="new">$238.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                    
                                 </div>
                             </div>
                             <!-- 1st tab end -->
                             <!-- 2nd tab start -->
                             <div class="tab-pane fade" id="toprated">
                                 <div class="row">
+                                    {% for product in productprice %}
                                     <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
                                         <!-- Single Prodect -->
                                         <div class="product">
@@ -640,12 +405,12 @@
                                                 </a>
                                             </div>
                                             <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Modern Smart Phone
+                                                <span class="category"><a href="#">{{category.title}}</a></span>
+                                                <h5 class="title"><a href="single-product.html">{{product.title}}
                                                     </a>
                                                 </h5>
                                                 <span class="price">
-                                                    <span class="new">$38.50</span>
+                                                    <span class="new">{{product.price}}</span>
                                                 </span>
                                             </div>
                                             <div class="actions">
@@ -659,234 +424,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="sale">-10%</span>
-                                            <span class="new">New</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/2.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/2.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Bluetooth Headphone
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="old">$48.50</span>
-                                                <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="new">Sale</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/3.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/3.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Smart Music Box
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="new">New</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/4.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/1.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Air Pods 25Hjkl Black
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/5.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/5.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Smart Hand Watch
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="sale">-8%</span>
-                                            <span class="new">Sale</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/6.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/6.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Smart Table Camera
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="old">$138.50</span>
-                                                <span class="new">$112.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="new">Sale</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/7.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/1.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Round Pocket Router
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="new">$38.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                <span class="sale">-5%</span>
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{% static 'assets/images/product-image/8.webp' %}" alt="Product" />
-                                                    <img class="hover-image" src="{% static 'assets/images/product-image/8.webp' %}" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <span class="category"><a href="#">Accessories</a></span>
-                                                <h5 class="title"><a href="single-product.html">Power Bank 10000Mhp
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
-                                                    <span class="old">$260.00</span>
-                                                <span class="new">$238.50</span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                    class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                    
                                 </div>
                             </div>
                             <!-- 2nd tab end -->
@@ -1163,16 +702,18 @@
         </div>
         <!-- Product Area End -->
         <!-- Fashion Area Start -->
-        <div class="fashion-area" data-bg-image="{% static 'assets/images/fashion/fashion-bg.webp' %}">
+        {% for adss in ads %}
+        <div class="fashion-area" data-bg-image="{{adss.bg_image.url}}">
             <div class="container h-100">
                 <div class="row justify-content-center align-items-center h-100">
                     <div class="col-12 text-center">
-                        <h2 class="title"> <span>Smart Fashion</span> With Smart Devices </h2>
+                        <h2 class="title"> <span>{{adss.title}}</span> {{adss.product}}</h2>
                         <a href="shop-left-sidebar.html" class="btn btn-primary text-capitalize m-auto">Shop All Devices</a>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
         <!-- Fashion Area End -->
         <!-- Feature product area start -->
         <div class="feature-product-area pt-100px pb-100px">
@@ -1186,16 +727,17 @@
                     </div>
                 </div>
                 <div class="row">
+                    {% for product in products1 %}
                     <div class="col-xl-6 col-lg-6 mb-md-35px mb-lm-35px">
                         <div class="single-feature-content">
                             <div class="feature-image">
-                                <img src="assets/images/feature-image/1.webp" alt="">
+                                <img src="{% static 'assets/images/feature-image/1.webp' %}" alt="">
                             </div>
                             <div class="top-content">
-                                <h4 class="title"><a href="single-product.html">Bluetooth Headphone </a></h4>
+                                <h4 class="title"><a href="single-product.html">{{product.title}} </a></h4>
                                 <span class="price">
-                            <span class="old"><del>$48.50</del></span>
-                                <span class="new">$38.50</span>
+                            <span class="old"><del>{{product.price}}</del></span>
+                                <span class="new">{{product.get_price}}</span>
                                 </span>
                             </div>
                             <div class="bottom-content">
@@ -1207,6 +749,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                     <div class="col-xl-6 col-lg-6">
                         <div class="feature-right-content">
                             <div class="image-side">
@@ -1366,18 +909,14 @@
             <div class="container">
                 <div class="brand-slider swiper-container">
                     <div class="swiper-wrapper align-items-center">
+                        {% for brend in brends %}
                         <div class="swiper-slide brand-slider-item text-center">
-                            <a href="#"><img class=" img-fluid" src="{% static 'assets/images/partner/1.png' %}" alt="" /></a>
+                            <a href="#"><img class=" img-fluid" src="{{brend.image.url}}" alt="" /></a>
+                            <h2>{{brend.title}}</h2>
+                            <p>{{brend.description}}</p>
                         </div>
-                        <div class="swiper-slide brand-slider-item text-center">
-                            <a href="#"><img class=" img-fluid" src="{% static 'assets/images/partner/2.png' %}" alt="" /></a>
-                        </div>
-                        <div class="swiper-slide brand-slider-item text-center">
-                            <a href="#"><img class=" img-fluid" src="{% static 'assets/images/partner/3.png' %}" alt="" /></a>
-                        </div>
-                        <div class="swiper-slide brand-slider-item text-center">
-                            <a href="#"><img class=" img-fluid" src="{% static 'assets/images/partner/4.png' %}" alt="" /></a>
-                        </div>
+                        {% endfor %}
+                        
                     </div>
                 </div>
             </div>
